@@ -1,13 +1,24 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Jacob Tomlinson"
+name: "OCA Maintainer Tools Action (Experiment)"
+description: "Run maintainer tools from github actions"
+author: "Iván Todorovich"
 inputs:
-  myInput:
+  addons-dir:
     description: "Input to use"
-    default: "world"
-outputs:
-  myOutput:
-    description: "Output from the action"
+    default: "."
+    required: false
+  org-name:
+    description: "Input to use"
+    required: true
+  repo-name:
+    description: "Input to use"
+    required: true
+  branch-name:
+    description: "Input to use"
+    required: true
+  commit:
+    description: "Should commit?"
+    required: false
+    default: "true"
 runs:
   using: "docker"
   image: "Dockerfile"
