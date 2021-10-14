@@ -2,23 +2,58 @@ name: "OCA Maintainer Tools Action (Experiment)"
 description: "Run maintainer tools from github actions"
 author: "Iván Todorovich"
 inputs:
+
+  # General Options
   addons-dir:
-    description: "Input to use"
+    description: "Where are the Odoo addons located. Default: ."
     default: "."
     required: false
-  org-name:
-    description: "Input to use"
+  organization:
+    description: "Organization name."
     required: true
-  repo-name:
-    description: "Input to use"
+  repository:
+    description: "Repository name."
     required: true
-  branch-name:
-    description: "Input to use"
+  branch:
+    description: "The branch name."
     required: true
+
+  # Gen Addons Table
+  gen-addons-table:
+    description: "Run oca-gen-addons-table"
+    default: "false"
+    required: false
+  readme-path:
+    description: "The general addons README file path"
+    default: "./README.md"
+    required: false
+
+  # Gen Addons Icon
+  gen-addons-icon:
+    description: "Run oca-gen-addon-icon on all addons"
+    default: "false"
+    required: false
+  src-icon:
+    description: "Path to a custom icon"
+    required: false
+
+  # Gen Addons Readme
+  gen-addons-readme:
+    description: "Run oca-gen-addon-readme on all addons"
+    default: "false"
+    required: false
+  gen-html:
+    description: "Also generate readme html"
+    default: "false"
+    required: false
+
+  # Commit options
   commit:
     description: "Should commit?"
-    required: false
     default: "true"
+    required: false
+
+
 runs:
   using: "docker"
   image: "Dockerfile"
