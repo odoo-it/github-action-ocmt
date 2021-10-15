@@ -5,12 +5,9 @@ from subprocess import check_call
 
 
 def str2bool(val):
-    if isinstance(val, bool):
-        return val
-    elif isinstance(val, str):
+    if isinstance(val, str):
         return val in ["true", "True", "1"]
-    else:
-        return bool(val)
+    return bool(val)
 
 
 def input2environ(input):
